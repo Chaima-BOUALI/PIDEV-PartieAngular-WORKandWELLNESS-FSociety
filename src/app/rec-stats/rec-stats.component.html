@@ -97,13 +97,13 @@
             </div>
             <div class="col">
               <ul class="nav nav-pills justify-content-end">
-                <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"  (click)="data=datasets[0];updateOptions()">
+                <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales"  (click)="setToMonth()">
                   <a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked===true}" data-toggle="tab" (click)="clicked=true;clicked1=false">
                     <span class="d-none d-md-block">Month</span>
                     <span class="d-md-none">M</span>
                   </a>
                 </li>
-                <li class="nav-item" data-toggle="chart" data-target="#chart-sales"  (click)="data=datasets[1];updateOptions()">
+                <li class="nav-item" data-toggle="chart" data-target="#chart-sales"  (click)="setToWeek()">
                   <a href="javascript:void(0)" class="nav-link py-2 px-3" [ngClass]="{'active':clicked1===true}" data-toggle="tab" (click)="clicked=false;clicked1=true">
                     <span class="d-none d-md-block">Week</span>
                     <span class="d-md-none">W</span>
@@ -116,12 +116,13 @@
         <div class="card-body">
           <table>
             <tr *ngFor="let x of weekly">
-              <td>{{x.idR}}</td>
-              <td>{{x.User}}</td>
-              <td>{{x.object}}</td>
-              <td>{{x.status}}</td>
-              <td>{{x.dateReclamation}}</td>
-
+              <div *ngIf="x.idR<dateToPick">
+              <td style="margin-right: 40px">{{x.idR}}</td>
+              <td style="margin-right: 40px">{{x.User}}</td>
+              <td style="margin-right: 40px">{{x.object}}</td>
+              <td style="margin-right: 40px">{{x.status}}</td>
+              <td style="margin-right: 40px">{{x.dateReclamation}}</td>
+              </div>
             </tr>
           </table>
           <div class="chart">

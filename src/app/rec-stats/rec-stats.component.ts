@@ -15,12 +15,13 @@ export class RecStatsComponent implements OnInit {
   public clicked: boolean = true;
   public clicked1: boolean = false;
   public weekly:any;
+  public dateToPick:number;
   constructor(public http:HttpClient) {
   }
 
   ngOnInit() {
 
-
+    this.dateToPick=50;
 
       this.http.get("https://6275aa9abc9e46be1a0dad15.mockapi.io/api/reclamation").subscribe(response => this.weekly = response);
 
@@ -46,6 +47,13 @@ this.http.get("http://localhost:8000/api/Reclamations/nbre").subscribe(num => th
   {
     this.salesChart.data.datasets[0].data = this.data;
     this.salesChart.update();
+  }
+
+  setToWeek(){
+    this.dateToPick=5;
+  }
+  setToMonth(){
+    this.dateToPick=50;
   }
 
 }

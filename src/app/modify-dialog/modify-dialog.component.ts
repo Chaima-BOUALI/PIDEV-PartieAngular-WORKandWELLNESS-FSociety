@@ -19,6 +19,7 @@ public myForm:FormGroup;
               @Inject(MAT_DIALOG_DATA) public data: Reclamation,public http:HttpClient) { }
 
   public sendPost() {
+    window.location.reload();
     let daata = {
       idR:1,
       dateReclamation:"07/05/2022",

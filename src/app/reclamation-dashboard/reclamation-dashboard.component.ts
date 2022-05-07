@@ -27,7 +27,7 @@ public openDialog = () => {
   })};
 public delete = (data:number)=>{
   let response =this.http.delete(`http://localhost:8000/api/Reclamations/remove-reclamation/${data}`,).subscribe();
-
+  window.location.reload();
 };
  public idR: number;
  public dateReclamation:Date;
