@@ -26,7 +26,7 @@ public openDialog = () => {
     data: {name: this.idR},
   })};
 public delete = (data:number)=>{
-  this.http.delete(`http://localhost:8000/api/Reclamations/remove-reclamation/${data}`,).subscribe();
+  let response =this.http.delete(`http://localhost:8000/api/Reclamations/remove-reclamation/${data}`,).subscribe();
 
 };
  public idR: number;
